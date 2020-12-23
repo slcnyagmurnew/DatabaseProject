@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPaneLogin" fx:id="MainAnchor" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dbproject.MainController">
+    <children>
+        
+      <Button fx:id="login" layoutX="456.0" layoutY="527.0" onAction="#LoginAction" text="Giriş Yap" />
+      <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <Label layoutX="456.0" layoutY="326.0" prefHeight="40.0" prefWidth="115.0" text="Kullanıcı Adı:" />
+      <Label layoutX="456.0" layoutY="400.0" prefHeight="40.0" prefWidth="115.0" text="Şifre:" />
+      <ComboBox fx:id="dropdown" editable="true" layoutX="456.0" layoutY="236.0" prefHeight="40.0" prefWidth="373.0" promptText="Seçiniz.." visibleRowCount="2" />
+      <TextField fx:id="fid" layoutX="608.0" layoutY="327.0" />
+      <Button fx:id="register" layoutX="754.0" layoutY="527.0" mnemonicParsing="false" onAction="#RegisterAction" text="Kaydol" />
+      <Label alignment="CENTER" layoutX="422.0" layoutY="101.0" prefHeight="39.0" prefWidth="373.0" text="Evde Bakım Hizmeti Bilgi Sistemi" textAlignment="CENTER" />
+      <PasswordField fx:id="fpassword" layoutX="608.0" layoutY="401.0" />
+    </children>
+</AnchorPane>

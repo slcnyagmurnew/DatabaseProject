@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dbproject.PatientController">
+   <children>
+      <Label alignment="CENTER" layoutX="425.0" layoutY="14.0" prefHeight="39.0" prefWidth="350.0" text="Hoşgeldiniz" />
+      <Button fx:id="listOfficers" layoutX="437.0" layoutY="109.0" mnemonicParsing="false" onAction="#listOfficersAction" prefHeight="20.0" prefWidth="130.0" text="Görevli Listele" />
+      <Button fx:id="updateUserData" layoutX="840.0" layoutY="214.0" mnemonicParsing="false" onAction="#updateUserDataAction" prefHeight="20.0" prefWidth="135.0" text="Bilgilerimi Güncelle" />
+      <Label layoutX="660.0" layoutY="110.0" prefHeight="39.0" prefWidth="160.0" text="Email:" />
+      <Label layoutX="660.0" layoutY="165.0" prefHeight="39.0" prefWidth="160.0" text="Telefon:" />
+      <TextField fx:id="fnewEmail" layoutX="820.0" layoutY="110.0" />
+      <TextField fx:id="fnewPhone" layoutX="820.0" layoutY="165.0" />
+      <DatePicker fx:id="appointmentDate" layoutX="71.0" layoutY="109.0" prefHeight="39.0" prefWidth="360.0" />
+      <Button fx:id="selectOfficer" layoutX="437.0" layoutY="353.0" mnemonicParsing="false" onAction="#selectOfficerAction" prefHeight="20.0" prefWidth="130.0" text="Görevli Seç" />
+      <TableView fx:id="officersTable" layoutX="71.0" layoutY="165.0" prefHeight="225.0" prefWidth="360.0" />
+      <TableView fx:id="appoinmentsTable" layoutX="71.0" layoutY="400.0" prefHeight="225.0" prefWidth="360.0" />
+      <Button fx:id="takeAppointment" layoutX="437.0" layoutY="586.0" mnemonicParsing="false" onAction="#takeAppointmentAction" prefHeight="20.0" prefWidth="130.0" text="Randevu Al" />
+      <Button fx:id="exitBtn" layoutX="1088.0" layoutY="712.0" mnemonicParsing="false" onAction="#exitAction" text="Çıkış" />
+      <TableView fx:id="currentAppointments" layoutX="660.0" layoutY="400.0" prefHeight="225.0" prefWidth="360.0" />
+      <Label alignment="CENTER" layoutX="660.0" layoutY="353.0" prefHeight="39.0" prefWidth="360.0" text="Randevularım" />
+      <Button fx:id="deleteAppointment" layoutX="1032.0" layoutY="586.0" mnemonicParsing="false" onAction="#deleteAppointmentAction" prefHeight="20.0" prefWidth="130.0" text="Randevu Sil" />
+      <Button fx:id="listAppointments" layoutX="1032.0" layoutY="538.0" mnemonicParsing="false" onAction="#listAppointmentsAction" prefHeight="20.0" prefWidth="130.0" text="Listele" />
+      <Button fx:id="deleteRecord" layoutX="840.0" layoutY="258.0" mnemonicParsing="false" onAction="#deleteRecordAction" prefHeight="20.0" prefWidth="135.0" text="Kaydımı Sil" />
+   </children>
+</AnchorPane>
