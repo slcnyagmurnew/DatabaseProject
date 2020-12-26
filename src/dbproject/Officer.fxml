@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
+<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dbproject.StaffController">
-    
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dbproject.OfficerController">
+   <children>
+      <Label layoutX="484.0" layoutY="85.0" text="HOŞ GELDİNİZ">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <TableView fx:id="appTable" layoutX="94.0" layoutY="164.0" prefHeight="400.0" prefWidth="450.0" />
+      <Button fx:id="listDates" layoutX="252.0" layoutY="583.0" mnemonicParsing="false" onAction="#listDateAction" text="Randevuları Listele" />
+      <TableView fx:id="diseaseTable" layoutX="625.0" layoutY="159.0" prefHeight="409.0" prefWidth="471.0" />
+      <Button layoutX="600.0" layoutY="583.0" mnemonicParsing="false" text="Diyabet" />
+      <Button layoutX="701.0" layoutY="583.0" mnemonicParsing="false" text="Alzheimer" />
+      <Button layoutX="813.0" layoutY="583.0" mnemonicParsing="false" text="Tansiyon" />
+      <Button layoutX="919.0" layoutY="583.0" mnemonicParsing="false" text="Bedensel Engel" />
+      <Button layoutX="1077.0" layoutY="583.0" mnemonicParsing="false" text="Obezite" />
+      <Button layoutX="942.0" layoutY="685.0" mnemonicParsing="false" text="Kullanıcıyı Sil" />
+   </children>
 </AnchorPane>

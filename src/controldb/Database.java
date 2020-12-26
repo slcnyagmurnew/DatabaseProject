@@ -12,6 +12,7 @@ package controldb;
  */
 
 import classes.Appoinment;
+import classes.AppointmentOfficer;
 import classes.Officer;
 import classes.Patient;
 import dbproject.RegisterAlert;
@@ -198,8 +199,7 @@ public class Database {
     public boolean logInOfficer(Officer officer) {
         boolean isLogIn = false;
         try {
-            String mdPassword = this.MD5(officer.getPassword());
-            String sql = "SELECT tcno, sifre FROM officers WHERE tcno = '" + officer.getId() + "' AND sifre = '" + mdPassword + "'";
+            String sql = "SELECT tcno, sifre FROM officers WHERE tcno = '" + officer.getId() + "' AND sifre = '" + officer.getPassword() + "'";
             Statement statement = conn.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             if(resultSet.next()) {
@@ -209,7 +209,7 @@ public class Database {
             resultSet.close();
             conn.close();
         }
-        catch (NoSuchAlgorithmException | SQLException e) {
+        catch (SQLException e) {
         }
         return isLogIn;
     }
@@ -405,6 +405,33 @@ public class Database {
         catch (SQLException e) {
         }
         return false;
+    }
+    
+    public ArrayList<AppointmentOfficer> currentAppointments(String officer_no){
+        ArrayList<AppointmentOfficer> OfficersCurrentAppointmentsList = new ArrayList<>();
+ 
+        try {
+            String sql;
+            sql ="SELECT users.isim, users.soyisim, users.adres, appointments.start_hour, appointments.finish_hour\n" +
+            "FROM users FULL OUTER JOIN appointments ON users.tcno=appointments.user_no \n" +
+            "WHERE appointments.appointment_date = CURRENT_DATE\n" +
+            "and appointments.officer_no  = '"+ officer_no +"'\n" +
+            "order by appointments.user_no";
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                AppointmentOfficer appointment = new AppointmentOfficer();
+                appointment.setIsim(resultSet.getString(1));
+                appointment.setSoyisim(resultSet.getString(2));
+                appointment.setAdres(resultSet.getString(3));
+                appointment.setStart_hour(resultSet.getString(4) + ":00");
+                appointment.setFinish_hour(resultSet.getString(5) + ":00");
+                OfficersCurrentAppointmentsList.add(appointment);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return OfficersCurrentAppointmentsList;
     }
 }
 

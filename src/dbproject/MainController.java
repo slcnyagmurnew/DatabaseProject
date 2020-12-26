@@ -15,6 +15,8 @@ import classes.Patient;
 import controldb.Database;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -96,10 +98,13 @@ public class MainController implements Initializable {
                     }
                 }
                 else{
-                    Officer newOfficer = new Officer(id, password);
-                    if(db.logInOfficer(newOfficer)){
+                    Officer officer = new Officer(id, password);
+                    if(db.logInOfficer(officer)){
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Officer.fxml"));     
+                        root = (Parent)fxmlLoader.load();          
+                        OfficerController controller = fxmlLoader.<OfficerController>getController();
+                        controller.setOfficer(officer);
                         LoginAlert.LoginSuccessful().showAndWait();
-                        root = FXMLLoader.load(getClass().getResource("Staff.fxml"));
                     }
                     else{
                         LoginAlert.LoginFailed().showAndWait();
